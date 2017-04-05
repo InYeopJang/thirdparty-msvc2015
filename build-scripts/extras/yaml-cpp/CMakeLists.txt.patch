@@ -1,0 +1,25 @@
+--- CMakeLists.txt.orig	2017-04-05 11:48:22.755835900 +0100
++++ CMakeLists.txt	2017-04-05 11:49:08.607323900 +0100
+@@ -287,15 +287,13 @@
+ endif()
+ 
+ if(MSVC)
+-	if(NOT BUILD_SHARED_LIBS)
+-		# correct library names
+-		set_target_properties(yaml-cpp PROPERTIES
+-			DEBUG_POSTFIX "${LIB_TARGET_SUFFIX}d"
+-			RELEASE_POSTFIX "${LIB_TARGET_SUFFIX}"
+-			MINSIZEREL_POSTFIX "${LIB_TARGET_SUFFIX}"
+-			RELWITHDEBINFO_POSTFIX "${LIB_TARGET_SUFFIX}"
+-		)
+-	endif()
++    # correct library names
++    set_target_properties(yaml-cpp PROPERTIES
++        DEBUG_POSTFIX "${LIB_TARGET_SUFFIX}d"
++        RELEASE_POSTFIX "${LIB_TARGET_SUFFIX}"
++        MINSIZEREL_POSTFIX "${LIB_TARGET_SUFFIX}"
++        RELWITHDEBINFO_POSTFIX "${LIB_TARGET_SUFFIX}"
++    )
+ endif()
+ 
+ install(TARGETS yaml-cpp ${_INSTALL_DESTINATIONS})

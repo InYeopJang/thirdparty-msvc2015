@@ -16,9 +16,6 @@
 :: Also put the debug runtime libraries on the PATH
 @set VC_RUNTIME_DEBUG=%VS140COMNTOOLS%\..\..\VC\redist\debug_nonredist\x64\Microsoft.VC140.DebugCRT
 
-:: Assume perl, cmake, git, 7-zip is in standard windows location. Perl needs to be before Git to pick up the activestate version
-@set PATH=%PATH%;C:\Perl64\bin;C:\Program Files (x86)\CMake\bin;C:\Program Files\Git\usr\bin;C:\Program Files\7-Zip;%VC_RUNTIME_DEBUG%;%~dp0;
-
 :: Build root - Defaults to [Drive]:\Builds
 @set BUILD_ROOT=%~d0\Builds
 
@@ -27,6 +24,10 @@
 
 :: This will be used by a lot of scripts
 @set PYTHON_INSTALL_PREFIX=%INSTALL_PREFIX%\lib\python2.7
+
+:: Assume perl, cmake, git, 7-zip is in standard windows location. Perl needs to be before Git to pick up the activestate version
+@set PATH=%PYTHON_INSTALL_PREFIX%;%PATH%;C:\Perl64\bin;C:\Program Files (x86)\CMake\bin;C:\Program Files\Git\usr\bin;C:\Program Files\7-Zip;%VC_RUNTIME_DEBUG%;%~dp0;
+
 goto:eof
 
 :set-install-root
